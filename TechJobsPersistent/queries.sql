@@ -6,7 +6,9 @@
 
 --Part 2
 
-SELECT * FROM techjobs.employers Where Location="St. Louis City";
+SELECT *
+FROM techjobs.employers
+Where techjobs.Employers.Location="St. Louis City";
 
 --Part 3
 
