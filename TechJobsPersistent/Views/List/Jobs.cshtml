@@ -1,12 +1,15 @@
 ﻿<div class="container body-content">
 
-    <h1>@ViewBag.title</h1>
+    <div>
+        <h1>@ViewBag.title</h1>
+    </div>
 
     <table>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Employer</th>
+            <th>Location</th>
             <th>Skills</th>
         </tr>
         @foreach (var job in ViewBag.jobs)
@@ -15,6 +18,7 @@
                 <td>@job.JobId</td>
                 <td>@job.Name</td>
                 <td>@job.EmployerName</td>
+                <td>@job.EmployerLocation</td>
                 <td>@job.SkillText</td>
             </tr>
         }

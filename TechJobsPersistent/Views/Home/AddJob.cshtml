@@ -1,6 +1,12 @@
 ﻿@model TechJobsPersistent.ViewModels.AddJobViewModel
 
-<h1>Add a Job</h1>
+
+
+<div>
+    <h1>Add a Job</h1>
+</div>
+
+
 
 <form asp-controller="Home" asp-action="ProcessAddJobForm" method="post">
     <div class="form-group">
@@ -8,22 +14,23 @@
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
-
+    <br/>
     <div class="form-group">
         <label asp-for="EmployerId">Employers</label>
         <select asp-for="EmployerId" asp-items="Model.Employers"></select>
         <a asp-controller="Employer" asp-action="Add">Add New Employer</a>
     </div>
-
+    <br />
     <div class="form-group">
         @foreach (var skill in Model.Skills)
         {
-<div>
-    <label>
-        <span></span>
-        <input type="checkbox" name="selectedSkills" value="@skill.Id" /> @skill.Name
-    </label>
-</div>}
+        <div>
+            <label>
+            <span></span>
+                <input type="checkbox" name="selectedSkills" value="@skill.Id" /> @skill.Name
+            </label>
+        </div>}
+
         <a asp-controller="Skill" asp-action="Add">Add New Skill</a>
     </div>
 
