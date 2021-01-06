@@ -43,28 +43,30 @@ namespace TechJobsPersistent.Controllers
             if (ModelState.IsValid)
             {
 
-                Employer theEmployer = context.Employers.Find(addJobViewModel.EmployerId);
-
+                //Employer theEmployer = context.Employers.Find(addJobViewModel.EmployerId);
                 Job newJob = new Job
                 {
                     Name = addJobViewModel.Name,
-                    Employer = theEmployer,
+                    Employer = context.Employers.Find(addJobViewModel.EmployerId),
                     EmployerId = addJobViewModel.EmployerId
+
+                    //Employer = theEmployer,
                 };
 
 
-                for (int i = 0; i < selectedSkills.Length; i++)
+                foreach (var skill in selectedSkills)
                 {
                     
                     JobSkill newJobSkill = new JobSkill
                     {
                         JobId = newJob.Id,
                         Job = newJob,
-                        SkillId = Int32.Parse(selectedSkills[i])
+                        SkillId = int.Parse(skill)
 
                     };
-                        
+
                     context.JobSkills.Add(newJobSkill);
+                        
                 }
                         
 
